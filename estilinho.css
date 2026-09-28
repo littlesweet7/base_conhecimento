@@ -1,0 +1,489 @@
+/* 1. Todos os imports de fontes devem ficar juntos no topo do arquivo */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('imagens/fundo.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.container {
+    background: rgba(153, 86, 125, 0.75);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+}
+
+h1 {
+    font-family: georgia, serif;
+
+    color: #ffffff;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-family: georgia, serif;
+
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-family: georgia, serif;
+
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.caixa-busca {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.caixa-busca select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+}
+
+/* Botões Gerais */
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #ff0095;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #d809b5;
+}
+
+/* Botão do Menu de Adicionar */
+.btn-novo {
+    width: 100%;
+    background-color: #6e045d;
+}
+
+.btn-novo:hover {
+    background-color: #8c0576;
+}
+
+.btn-salvar {
+    background-color: #28a745;
+}
+
+.btn-salvar:hover {
+    background-color: #218838;
+}
+
+/* Classe para esconder a área de cadastro */
+.escondido {
+    display: none;
+}
+
+#areaCadastro {
+    margin-top: 15px;
+}
+
+/* Linha Divisória */
+.divisor {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 30px 0;
+}
+
+/* Cartões de Resultados */
+.cartao {
+    background: #ffffff;
+    border-left: 5px solid #ff0095;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    position: relative; /* Mantém como referência para o container de botões */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cartao h3 {
+    margin: 0 0 8px 0;
+    color: #6e045d;
+    font-size: 18px;
+    padding-right: 170px; /* Evita que o título fique por baixo dos botões */
+}
+
+.cartao p {
+    margin: 0;
+    color: #2b2b2b;
+    line-height: 1.4;
+    white-space: pre-line;
+}
+
+/* Container que segura os dois botões no canto superior direito */
+.acoes-cartao {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+    z-index: 10;
+}
+
+/* Zera posições antigas dos botões individuais */
+.acoes-cartao button,
+.btn-editar,
+.btn-excluir {
+    position: static !important; /* MUDANÇA CHAVE: remove o absolute individual que fazia sobrepor */
+    top: auto !important;
+    right: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 75px !important;
+    height: 28px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 12px !important;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: none !important;
+}
+
+/* Estilo do botão Editar */
+.btn-editar {
+    background-color: #f0f7ff !important;
+    color: #007bff !important;
+    border: 1px solid #b8daff !important;
+}
+
+.btn-editar:hover {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+}
+
+/* Estilo do botão Excluir */
+.btn-excluir {
+    background-color: #fff0f0 !important;
+    color: #dc3545 !important;
+    border: 1px solid #f5c6cb !important;
+}
+
+.btn-excluir:hover {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+}
+
+/* Estilo do Rótulo e do Input de Arquivo/Imagem */
+.rotulo-imagem {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+input[type="file"] {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: 1px dashed rgba(255, 255, 255, 0.6);
+    padding: 8px;
+    cursor: pointer;
+}
+
+/* Estilo da Imagem Exibida no Cartão de Resultado */
+.imagem-cartao {
+    margin-top: 12px;
+    max-width: 100%;
+    max-height: 350px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    display: block;
+    object-fit: contain;
+}
+/* Container do Passo a Passo */
+.lista-passos {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Cartão individual de cada passo */
+.item-passo {
+    background: #fdf2fa;
+    border-left: 4px solid #6e045d;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.numero-passo {
+    display: inline-block;
+    background-color: #6e045d;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+/* Divisor leve interno */
+.divisor-suave {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 15px 0;
+}
+
+/* Seção do Formulário de Passos */
+.secao-passos h3 {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card-passo-form {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.btn-add-passo {
+    background-color: #6e045d !important;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.btn-add-passo:hover {
+    background-color: #8c0576 !important;
+}
+
+.btn-remover-passo {
+    position: absolute !important;
+    top: 5px !important;
+    right: 5px !important;
+    background: transparent !important;
+    color: #ff4d4d !important;
+    border: none !important;
+    font-size: 11px !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 2px 6px !important;
+}
+
+/* Exibição dos Passos dentro do Cartão de Resultado */
+.lista-passos {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-passo {
+    background: #fdf2fa;
+    border-left: 4px solid #6e045d;
+    padding: 10px 12px;
+    border-radius: 4px;
+}
+
+.numero-passo {
+    display: inline-block;
+    background-color: #6e045d;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+/* Rótulo "Passo X:" no topo do card */
+.rotulo-passo-topo {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+/* Estica a caixa de texto para a direita (100% da largura) */
+.card-passo-form .texto-passo {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    resize: vertical;
+}
+
+/* Quebra de linha e espaçamento entre a caixa e a mensagem do print */
+.card-passo-form .espaco-topo {
+    margin-top: 14px !important;
+}
+
+.caixa-backup {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-backup {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    padding: 6px 12px !important;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px !important;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-backup:hover {
+    background-color: rgba(202, 202, 202, 0.4) !important;
+}
+
+/* Destaque para o cartão quando for Favorito */
+.cartao-favorito {
+    background-color: #fffdf0 !important; /* Fundo amarelo bem suave */
+    border-left: 6px solid #f59e0b !important; /* Borda lateral amarela/dourada */
+}
+/* Garante que o cartão seja a referência de posicionamento */
+.cartao {
+    position: relative !important;
+    padding-bottom: 75px !important; /* Espaço para os botões não cobrirem o texto */
+}
+
+/* Libera largura do título já que só ficaram 2 botões no topo */
+.cartao h3 {
+    padding-right: 140px !important;
+}
+
+/* Botões do topo (Editar e Excluir) */
+.acoes-cartao-topo {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    display: flex !important;
+    gap: 6px !important;
+}
+
+/* Botões do canto inferior direito (Copiar e Favoritar empilhados) */
+.acoes-cartao-base {
+    position: absolute !important;
+    bottom: 12px !important;
+    right: 12px !important;
+    display: flex !important;
+    flex-direction: column !important; /* Empilha um em cima do outro */
+    align-items: flex-end !important;
+    gap: 6px !important;
+}
+
+/* Definição de tamanho igual para os botões do canto inferior */
+.btn-copiar, .btn-favorito {
+    width: 38px !important;
+    height: 30px !important;
+    padding: 0 !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    cursor: pointer;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+}
+
+/* Estilo individual do botão Copiar */
+.btn-copiar {
+    background-color: #f3e8ff !important;
+    color: #6e045d !important;
+    border: 1px solid #d8b4fe !important;
+}
+
+.btn-copiar:hover {
+    background-color: #e9d5ff !important;
+}
+
+/* Estilo individual do botão Favoritar */
+.btn-favorito {
+    background-color: #fff9e6 !important;
+    color: #d97706 !important;
+    border: 1px solid #fcd34d !important;
+}
+
+.btn-favorito:hover {
+    background-color: #fef3c7 !important;
+}
+
+/* --- TRATAMENTO DE TEXTO EXPANDÍVEL (VER MAIS / VER MENOS) --- */
+.descricao-curta {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3; /* Adicionado para compatibilidade padrão */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-expandir {
+    background: none !important;
+    border: none !important;
+    color: #ff0095 !important; /* Rosa combinando com a identidade do seu tema */
+    font-weight: bold;
+    font-size: 13px !important;
+    cursor: pointer;
+    padding: 0 !important;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    display: inline-block;
+    width: auto !important;
+    height: auto !important;
+}
+
+.btn-expandir:hover {
+    color: #d809b5 !important;
+    text-decoration: underline;
+}

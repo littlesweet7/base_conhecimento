@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my knowledge base ✨</title>
+    <link rel="stylesheet" href="estilinho.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Pesquisar Conteúdo</h1>
+        
+        <!-- Campo de Pesquisa -->
+        <div class="caixa-busca">
+            <input type="text" id="campoBusca" placeholder="Digite uma palavra-chave para buscar...">
+            <button onclick="pesquisar()">Buscar</button>
+        </div>
+        <!-- Campo de Pesquisa e Filtros -->
+<div class="caixa-busca">
+    
+    <!-- Filtro de Categoria -->
+    <select id="filtroCategoria" onchange="pesquisar()">
+<option value="todos" disabled selected hidden>Filtrar</option>
+        <option value="todos">Todos</option>
+        <option value="favoritos">Favoritos</option>
+        <option value="guias">Guias</option>
+    </select>
+
+</div>
+<!-- Botões de Backup -->
+<div class="caixa-backup">
+    <button type="button" onclick="exportarDados()" class="btn-backup">📥 Exportar Backup</button>
+    <label for="inputImportar" class="btn-backup">📤 Importar Backup</label>
+    <input type="file" id="inputImportar" accept=".json" onchange="importarDados(event)" style="display: none;">
+</div>
+        <!-- Área dos Resultados -->
+        <div id="resultados" class="resultados"></div>
+
+        <hr class="divisor">
+
+        <!-- Botão para Mostrar/Esconder o Formulário -->
+        <button id="btnToggle" class="btn-novo" onclick="alternarFormulario()">+ Adicionar Nova Informação</button>
+
+        <!-- Área do Formulário -->
+        <div id="areaCadastro" class="escondido">
+            <h2>Cadastrar Nova Informação</h2>
+            <form id="formCadastro" onsubmit="adicionarItem(event)">
+                <input type="text" id="novoTitulo" placeholder="Título (ex: Como alterar extensão de arquivo)" required>
+                
+                <textarea id="novaDescricao" placeholder="Resumo ou visão geral da informação..." rows="6" required></textarea>
+                
+                <input type="text" id="novasPalavrasChave" placeholder="Palavras-chave separadas por vírgula (ex: dat, xls, guia)" required>
+                
+                <!-- Imagem Geral (Opcional) -->
+                <div class="campo-upload">
+                    <label for="novaImagem" class="rotulo-imagem">📸 Imagem:</label>
+                    <input type="file" id="novaImagem" accept="image/*">
+                </div>
+
+                <hr class="divisor-suave">
+
+                <!-- Área Dinâmica dos Passos do Guia -->
+                <div class="secao-passos">
+                    <h3>Passo a Passo do Guia</h3>
+                    <div id="containerPassos"></div>
+                    <button type="button" class="btn-add-passo" onclick="adicionarCampoPasso()">+ Adicionar Passo</button>
+                </div>
+
+                <button type="submit" class="btn-salvar">+ Salvar no Sistema</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="interface.js" defer></script>
+</body>
+</html>
